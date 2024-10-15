@@ -1,4 +1,5 @@
 using Demo_MVC.Context;
+using Demo_MVC.Service;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<LoginService>();
 
 var app = builder.Build();
 
